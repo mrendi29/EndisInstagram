@@ -43,20 +43,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Use parse to check if the user is existing in the database.
-    private void login(String username, String password) {
+    private void login(final String username, final String password) {
 
         //Check if the user exists in our database.
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
+                Log.d(TAG, username + " " + password);
+
                 if (e != null) {
                     Log.e(TAG, "Issue with login.");
                     e.printStackTrace();
                     return;
                     //TODO: Add better error handling.
                 }
-
-
                 goMainActivity();
             }
         });
