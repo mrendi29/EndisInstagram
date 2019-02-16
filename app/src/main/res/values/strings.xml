@@ -6,4 +6,5 @@
     <string name="enter_a_description">Enter a description...</string>
     <string name="submit_picture">Submit Picture</string>
     <string name="take_picture">Take Picture</string>
+    <string name="log_in">LOG IN</string>
 </resources>
