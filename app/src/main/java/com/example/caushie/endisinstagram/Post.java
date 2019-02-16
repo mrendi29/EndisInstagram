@@ -13,7 +13,7 @@ public class Post extends ParseObject {
 
     final static String KEY_DESCRIPTION = "description";
     final static String KEY_USER = "user";
-    final static String KEY_IMAGE = "image";
+    final static String KEY_IMAGE = "imageResources";
 
     // Use getString and others to access fields
     public String getDescription() {
