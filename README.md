@@ -29,7 +29,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/u1lVSK1AaJ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='http://g.recordit.co/779c8llxWp.gif' Parse Walkthrough' width='450' alt='Parse Walkthrough' />
+<img src='http://g.recordit.co/779c8llxWp.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
