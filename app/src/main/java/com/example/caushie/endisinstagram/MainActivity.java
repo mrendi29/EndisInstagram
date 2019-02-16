@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setLogo(R.mipmap.nav_logo_whiteout1);
+//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         // Pull references for member variables.

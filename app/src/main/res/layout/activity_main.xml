@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/etDescription"
-        android:layout_width="match_parent"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="171dp"
         android:ems="12"
         android:hint="@string/enter_a_description"
         android:inputType="none" />
@@ -21,40 +23,46 @@
 
     <Button
         android:id="@+id/btnCapture"
-        android:layout_width="match_parent"
+        android:layout_width="172dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="137dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnSubmit"
+        android:layout_marginEnd="31dp"
         android:text="@string/take_picture" />
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_above="@+id/btnSubmit"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginBottom="162dp"
         tools:src="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
+        android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="135dp"
+        android:layout_marginBottom="42dp"
+        android:layout_marginStart="47dp"
         android:text="@string/submit_picture" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/bottom_border_grey"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme">
+        android:elevation="2dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_collapseMode="pin"
+        app:layout_scrollFlags="scroll|enterAlways"
+
+        >
 
     </android.support.v7.widget.Toolbar>
 
