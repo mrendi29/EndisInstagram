@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Application" parent="Theme.AppCompat.Light">
+
+        <item name="colorPrimary">@color/white</item>
+
+    </style>
     <style name="NiceButton" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">#FFFFFF</item>

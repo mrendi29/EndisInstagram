@@ -4,18 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="171dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="111dp"
         android:ems="12"
         android:hint="@string/enter_a_description"
         android:inputType="none" />
@@ -34,9 +31,9 @@
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="162dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="170dp"
         tools:src="@tools:sample/avatars" />
 
     <Button
@@ -45,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="42dp"
-        android:layout_marginStart="47dp"
+        android:layout_marginBottom="141dp"
+        android:layout_marginStart="49dp"
         android:text="@string/submit_picture" />
 
     <android.support.v7.widget.Toolbar
@@ -56,14 +53,24 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/bottom_border_grey"
-        android:minHeight="?attr/actionBarSize"
         android:elevation="2dp"
+        android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_collapseMode="pin"
-        app:layout_scrollFlags="scroll|enterAlways"
-
-        >
-
+        app:layout_scrollFlags="scroll|enterAlways">
     </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.BottomNavigationView
+
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:itemIconTint="@color/grey_2_70_transparent"
+        app:itemTextColor="@color/green_5_70_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottom_navigation" />
+
 
 </RelativeLayout>
