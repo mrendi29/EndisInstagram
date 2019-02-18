@@ -12,7 +12,7 @@
 
         <bitmap
             android:gravity="center"
-            android:src="@drawable/nav_logo_whiteout" />
+            android:src="@drawable/nav_logo_whiteout_new" />
     </item>
 
     <item android:bottom="1dp">
