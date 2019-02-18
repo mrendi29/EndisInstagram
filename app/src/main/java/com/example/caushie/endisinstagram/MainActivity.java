@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 //        getSupportActionBar().setLogo(R.mipmap.nav_logo_whiteout1);
 //        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
