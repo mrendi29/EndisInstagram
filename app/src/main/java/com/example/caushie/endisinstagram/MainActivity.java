@@ -7,12 +7,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.internal.BottomNavigationItemView;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivPostImage;
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
-    private BottomNavigationItemView bottomNavigationItemView;
+    private BottomNavigationView bottomNavigationView;
 
     File photoFile;
 
@@ -56,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationItemView = findViewById(R.id.bottom_navigation);
-
-
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -106,6 +106,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+
+                    case R.id.action_compose:
+                        Toast.makeText(MainActivity.this, "Action Compose", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_home:
+                        Toast.makeText(MainActivity.this, "Action home", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                        Toast.makeText(MainActivity.this, "Action profile", Toast.LENGTH_SHORT).show();
+                    default:
+
+                        break;
+                }
+                return true;
+            }
+        });
 
     }
 
