@@ -6,45 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="111dp"
-        android:ems="12"
-        android:hint="@string/enter_a_description"
-        android:inputType="none" />
 
-
-    <Button
-        android:id="@+id/btnCapture"
-        android:layout_width="172dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnSubmit"
-        android:layout_marginEnd="31dp"
-        android:text="@string/take_picture" />
-
-    <ImageView
-        android:id="@+id/ivPostImage"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="170dp"
-        tools:src="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="151dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="141dp"
-        android:layout_marginStart="49dp"
-        android:text="@string/submit_picture" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

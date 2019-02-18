@@ -11,9 +11,9 @@ import com.parse.ParseUser;
 @ParseClassName("Post")
 public class Post extends ParseObject {
 
-    final static String KEY_DESCRIPTION = "description";
-    final static String KEY_USER = "user";
-    final static String KEY_IMAGE = "imageResources";
+    public final static String KEY_DESCRIPTION = "description";
+    public final static String KEY_USER = "user";
+    public final static String KEY_IMAGE = "imageResources";
 
     // Use getString and others to access fields
     public String getDescription() {
