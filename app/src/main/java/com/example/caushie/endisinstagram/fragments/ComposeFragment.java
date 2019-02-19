@@ -22,15 +22,12 @@ import android.widget.Toast;
 
 import com.example.caushie.endisinstagram.Post;
 import com.example.caushie.endisinstagram.R;
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -45,6 +42,7 @@ public class ComposeFragment extends Fragment {
     private Button btnCaptureImage;
     private Button btnSubmitImage;
     private ImageView ivPostImage;
+
 
     // The onCreateView method is called when Fragment should create its View object hierarchy,
     // either dynamically or via XML layout inflation.
@@ -67,7 +65,6 @@ public class ComposeFragment extends Fragment {
         btnSubmitImage = view.findViewById(R.id.btnSubmit);
         ivPostImage = view.findViewById(R.id.ivPostImage);
 
-        queryPost();
 
         //add the image from the camera.
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
@@ -170,44 +167,6 @@ public class ComposeFragment extends Fragment {
         });
     }
 
-    /**
-     * We want to query all the posts.
-     * Specify which class to query
-     */
-    private void queryPost() {
-        // Specify which class to query
-        ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
 
-        /**
-         * Since the user who created the post is not
-         * included by default we need to specify it in the query
-         */
-
-        postQuery.include(Post.KEY_USER);
-
-        /**
-         * Execute the find asynchronously.
-         * (We do not want expensive operations on the ui)
-         */
-
-        postQuery.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-
-                //In case something goes wrong.
-                if (e != null) {
-                    Log.e(TAG, "Could not get posts. Error with query.");
-                    e.printStackTrace();
-                    return;
-                }
-                for (int i = 0; i < posts.size(); ++i) {
-                    Post post = posts.get(i);
-                    Log.d(TAG, "Description: " + post.getDescription() + "User: " + post.getUser().getUsername());
-                }
-            }
-        });
-
-
-    }
 
 }
