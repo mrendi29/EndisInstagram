@@ -84,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
                         //  Toast.makeText(MainActivity.this, "Action home", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_profile:
+
                         fragmentManager.beginTransaction().hide(active).show(profileFragment).commit();
+
                         active = profileFragment;
                         break;
 //                        Toast.makeText(MainActivity.this, "Action profile", Toast.LENGTH_SHORT).show();
