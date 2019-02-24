@@ -35,6 +35,19 @@ public class PostsAdapter extends RecyclerView.Adapter<ViewHolder> {
         return new ViewHolder(view);
     }
 
+    // Clean all elements of the recycler
+    public void clear() {
+        posts.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Post> list) {
+        posts.addAll(list);
+        notifyDataSetChanged();
+    }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -63,6 +76,7 @@ class ViewHolder extends RecyclerView.ViewHolder {
         createdAt = itemView.findViewById(R.id.tvTime);
         ivImage = itemView.findViewById(R.id.ivImage);
     }
+
 
     // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
     public String getRelativeTimeAgo(String rawJsonDate) {

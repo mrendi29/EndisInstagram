@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
 
+
     // Menu icons are inflated just as they were with actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
+        final Fragment composeFragment = new ComposeFragment();
+        final Fragment postsFragment = new PostsFragment();
+        final Fragment profileFragment = new ProfileFragment();
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -56,28 +60,28 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment;
+                Fragment active;
                 switch (item.getItemId()) {
 
                     case R.id.action_compose:
                         //TODO: Swap fragment
-                        fragment = new ComposeFragment();
+                        active = composeFragment;
                         //Toast.makeText(MainActivity.this, "Action Compose", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_home:
 
-                        fragment = new PostsFragment();
+                        active = postsFragment;
                         //  Toast.makeText(MainActivity.this, "Action home", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_profile:
-                        fragment = new ProfileFragment();
+                        active = profileFragment;
                         break;
 //                        Toast.makeText(MainActivity.this, "Action profile", Toast.LENGTH_SHORT).show();
                     default:
-                        fragment = new PostsFragment();
+                        active = postsFragment;
                         break;
                 }
-                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.flContainer, active).commit();
                 return true;
             }
         });
