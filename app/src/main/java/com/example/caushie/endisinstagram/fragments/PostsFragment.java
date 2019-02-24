@@ -104,6 +104,7 @@ public class PostsFragment extends Fragment {
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
+                adapter.clear();
 
                 //In case something goes wrong.
                 if (e != null) {
@@ -117,6 +118,8 @@ public class PostsFragment extends Fragment {
                     Post post = posts.get(i);
                     Log.d(TAG, "Description: " + post.getDescription() + "User: " + post.getUser().getUsername());
                 }
+
+                swipeContainer.setRefreshing(false);
 
             }
         });

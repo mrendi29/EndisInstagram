@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
 
+    final FragmentManager fragmentManager = getSupportFragmentManager();
+    final Fragment composeFragment = new ComposeFragment();
+    final Fragment postsFragment = new PostsFragment();
+    final Fragment profileFragment = new ProfileFragment();
+    Fragment active = composeFragment;
+
+
 
     // Menu icons are inflated just as they were with actionbar
     @Override
@@ -35,10 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final FragmentManager fragmentManager = getSupportFragmentManager();
-        final Fragment composeFragment = new ComposeFragment();
-        final Fragment postsFragment = new PostsFragment();
-        final Fragment profileFragment = new ProfileFragment();
+
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -55,33 +59,41 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //Since we want to keep the previous state we will use hide instead of replace.
+        fragmentManager.beginTransaction().add(R.id.flContainer, composeFragment, "1").commit();
+        fragmentManager.beginTransaction().add(R.id.flContainer, postsFragment, "2").hide(postsFragment).commit();
+        fragmentManager.beginTransaction().add(R.id.flContainer, profileFragment, "3").hide(profileFragment).commit();
+
 
         //Add onclick listener in order to determine which fragment to show
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment active;
+
                 switch (item.getItemId()) {
 
                     case R.id.action_compose:
-                        //TODO: Swap fragment
+                        fragmentManager.beginTransaction().hide(active).show(composeFragment).commit();
                         active = composeFragment;
+
                         //Toast.makeText(MainActivity.this, "Action Compose", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_home:
-
+                        fragmentManager.beginTransaction().hide(active).show(postsFragment).commit();
                         active = postsFragment;
                         //  Toast.makeText(MainActivity.this, "Action home", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_profile:
+                        fragmentManager.beginTransaction().hide(active).show(profileFragment).commit();
                         active = profileFragment;
                         break;
 //                        Toast.makeText(MainActivity.this, "Action profile", Toast.LENGTH_SHORT).show();
                     default:
+                        fragmentManager.beginTransaction().hide(active).show(composeFragment).commit();
                         active = postsFragment;
                         break;
                 }
-                fragmentManager.beginTransaction().replace(R.id.flContainer, active).commit();
+
                 return true;
             }
         });
