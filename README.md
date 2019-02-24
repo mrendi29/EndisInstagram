@@ -30,7 +30,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/5AkXtVvGrA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://gph.is/g/4b1xgRZ' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## User Stories- Week 1
 
