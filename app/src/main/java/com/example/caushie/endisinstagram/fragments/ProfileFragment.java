@@ -1,62 +1,19 @@
 package com.example.caushie.endisinstagram.fragments;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.caushie.endisinstagram.Post;
-import com.example.caushie.endisinstagram.PostsAdapter;
-import com.example.caushie.endisinstagram.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class PostsFragment extends Fragment {
+
+public class ProfileFragment extends PostsFragment {
     private static final String TAG = "PostsFragment";
-    protected RecyclerView rvPosts;
-    protected List<Post> mPosts;
-    protected PostsAdapter adapter;
 
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_posts, container, false);
-    }
-
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-        rvPosts = view.findViewById(R.id.rvPosts);
-
-        //create data source
-        mPosts = new ArrayList<>();
-        //Create Adapter
-        adapter = new PostsAdapter(getContext(), mPosts);
-        //Set the adapter on the recycler view
-        rvPosts.setAdapter(adapter);
-        //set the layout manager on the recyclerview
-        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        queryPost();
-
-    }
-
-    /**
-     * We want to query all the posts.
-     * Specify which class to query
-     */
     protected void queryPost() {
         // Specify which class to query
         ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
@@ -70,6 +27,8 @@ public class PostsFragment extends Fragment {
         postQuery.addDescendingOrder(Post.KEY_TIME);
         //Sets limit to only 20 last posts.
         postQuery.setLimit(20);
+        //Since we now are in ProfileFragment we want to add a filter to only show posts by the user.
+        postQuery.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
 
 
         /**
@@ -96,7 +55,5 @@ public class PostsFragment extends Fragment {
 
             }
         });
-
-
     }
 }

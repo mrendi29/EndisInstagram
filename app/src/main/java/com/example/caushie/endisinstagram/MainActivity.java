@@ -9,10 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.caushie.endisinstagram.fragments.ComposeFragment;
 import com.example.caushie.endisinstagram.fragments.PostsFragment;
+import com.example.caushie.endisinstagram.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,19 +62,19 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_compose:
                         //TODO: Swap fragment
                         fragment = new ComposeFragment();
-                        Toast.makeText(MainActivity.this, "Action Compose", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "Action Compose", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_home:
-                        //TODO: Swap fragment
+
                         fragment = new PostsFragment();
-                        Toast.makeText(MainActivity.this, "Action home", Toast.LENGTH_SHORT).show();
+                        //  Toast.makeText(MainActivity.this, "Action home", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_profile:
-                        //TODO: Swap fragment
-                        fragment = new ComposeFragment();
-                        Toast.makeText(MainActivity.this, "Action profile", Toast.LENGTH_SHORT).show();
+                        fragment = new ProfileFragment();
+                        break;
+//                        Toast.makeText(MainActivity.this, "Action profile", Toast.LENGTH_SHORT).show();
                     default:
-                        fragment = new ComposeFragment();
+                        fragment = new PostsFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
