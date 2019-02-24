@@ -31,6 +31,7 @@ The following **optional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <img src='https://gph.is/g/4b1xgRZ' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![](ezgif.com-optimize.gif)
 
 ## User Stories- Week 1
 
