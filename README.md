@@ -30,7 +30,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/5AkXtVvGrA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/D1qMiYVQ34.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 ## User Stories- Week 1
@@ -56,7 +56,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/u1lVSK1AaJ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://s2.gifyu.com/images/ezgif.com-optimize53f76d66f82efc67.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ### Parse Walktthrough
 
