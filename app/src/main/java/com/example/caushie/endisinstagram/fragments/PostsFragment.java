@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.caushie.endisinstagram.EndlessRecyclerViewScrollListener;
 import com.example.caushie.endisinstagram.Post;
 import com.example.caushie.endisinstagram.PostsAdapter;
 import com.example.caushie.endisinstagram.R;
@@ -29,6 +30,9 @@ public class PostsFragment extends Fragment {
     protected PostsAdapter adapter;
     private SwipeRefreshLayout swipeContainer;
 
+    private EndlessRecyclerViewScrollListener scrollListener;
+
+
 
     @Nullable
     @Override
@@ -39,6 +43,7 @@ public class PostsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
 
         // Lookup the swipe container view
         swipeContainer = view.findViewById(R.id.swipeContainer);
@@ -56,8 +61,9 @@ public class PostsFragment extends Fragment {
         adapter = new PostsAdapter(getContext(), mPosts);
         //Set the adapter on the recycler view
         rvPosts.setAdapter(adapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         //set the layout manager on the recyclerview
-        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvPosts.setLayoutManager(linearLayoutManager);
 
         queryPost();
 
@@ -70,12 +76,26 @@ public class PostsFragment extends Fragment {
             }
         });
 
+        // Retain an instance so that you can call `resetState()` for fresh searches
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                Log.i("Scroll", "Scolling data");
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadMoreData();
+            }
+        };
+
+        // Adds the scroll listener to RecyclerView
+        rvPosts.addOnScrollListener(scrollListener);
 
     }
 
-    private void queryNewPost() {
+    private void loadMoreData() {
 
     }
+
 
     /**
      * We want to query all the posts.
@@ -93,7 +113,7 @@ public class PostsFragment extends Fragment {
         postQuery.include(Post.KEY_USER);
         postQuery.addDescendingOrder(Post.KEY_TIME);
         //Sets limit to only 20 last posts.
-        postQuery.setLimit(20);
+        postQuery.setLimit(10);
 
 
         /**
