@@ -10,13 +10,23 @@
     <Button
         android:id="@+id/btnLogin"
         style="@style/NiceButton"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="279dp"
         android:text="@string/log_in" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/NiceButtonToRegister"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="212dp"
+        android:text="SIGN UP" />
 
     <ImageView
         android:layout_width="wrap_content"

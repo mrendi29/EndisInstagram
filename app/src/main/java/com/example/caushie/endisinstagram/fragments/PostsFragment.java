@@ -89,11 +89,11 @@ public class PostsFragment extends Fragment {
 
         // Adds the scroll listener to RecyclerView
         rvPosts.addOnScrollListener(scrollListener);
-
+        
     }
 
     private void loadMoreData() {
-
+        Log.i("Scroll", "Scolling  in method data");
     }
 
 
