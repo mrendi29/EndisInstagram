@@ -101,8 +101,9 @@ public class PostsFragment extends Fragment {
         postQuery.include(Post.KEY_USER);
         postQuery.addDescendingOrder(Post.KEY_TIME);
         //Sets limit to only 20 last posts.
-        postQuery.setLimit(counter + 5);
         postQuery.setSkip(counter);
+        postQuery.setLimit(counter + 5);
+
         counter += 5;
 
         postQuery.findInBackground(new FindCallback<Post>() {
