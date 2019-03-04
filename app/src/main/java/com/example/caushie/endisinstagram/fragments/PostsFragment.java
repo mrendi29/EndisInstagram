@@ -41,6 +41,8 @@ public class PostsFragment extends Fragment {
     }
 
 
+    public static int counter = 5;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -89,11 +91,42 @@ public class PostsFragment extends Fragment {
 
         // Adds the scroll listener to RecyclerView
         rvPosts.addOnScrollListener(scrollListener);
-        
+
     }
 
     private void loadMoreData() {
+
         Log.i("Scroll", "Scolling  in method data");
+        ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
+        postQuery.include(Post.KEY_USER);
+        postQuery.addDescendingOrder(Post.KEY_TIME);
+        //Sets limit to only 20 last posts.
+        postQuery.setLimit(counter + 5);
+        postQuery.setSkip(counter);
+        counter += 5;
+
+        postQuery.findInBackground(new FindCallback<Post>() {
+            @Override
+            public void done(List<Post> posts, ParseException e) {
+                //In case something goes wrong.
+                if (e != null) {
+                    Log.e(TAG, "Could not get posts. Error with query.");
+                    e.printStackTrace();
+                    return;
+                }
+
+
+                for (int i = 0; i < posts.size(); ++i) {
+                    Post post = posts.get(i);
+                    Log.d(TAG, "Description: " + post.getDescription() + "User: " + post.getUser().getUsername());
+                }
+
+                mPosts.addAll(posts);
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+
     }
 
 
@@ -113,8 +146,7 @@ public class PostsFragment extends Fragment {
         postQuery.include(Post.KEY_USER);
         postQuery.addDescendingOrder(Post.KEY_TIME);
         //Sets limit to only 20 last posts.
-        postQuery.setLimit(10);
-
+        postQuery.setLimit(5);
 
         /**
          * Execute the find asynchronously.
