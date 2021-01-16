@@ -2,8 +2,6 @@
 
 Endis Instagram is a photo sharing app similar to Instagram but using Parse as its backend.
 
-Time spent: 20 hours spent in total
-
 ## User Stories - Week 2
 
 The following **required** functionality is completed:
