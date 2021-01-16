@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 - [ ] Tapping on a post's username or profile photo goes to that user's profile page and shows a grid view of the user's posts
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
-- [ ] Run your app on your phone and use a custom camera view
+- [x] Run your app on your phone and use a custom camera view
 
 ## Video Walkthrough
 
@@ -45,10 +45,6 @@ The following **optional** features are implemented:
 - [x] User sees app icon in home screen and styled bottom navigation view
 - [ ] Style the feed to look like the real Instagram feed.
 - [ ] After the user submits a new post, show an indeterminate progress bar while the post is being uploaded to Parse.
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
 
